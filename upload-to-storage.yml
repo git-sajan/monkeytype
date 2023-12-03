@@ -43,7 +43,6 @@ steps:
           az storage fs directory generate-sas --account-name sajanstorageaccount --file-system mycontainer --name '/' --permissions dlrw
           az storage fs directory upload --account-name sajanstorageaccount -f mycontainer -d "fromgithubrepo" -s "*" --recursive --debug
           echo "The HTML report can be found here: nothing"
-        powerShellErrorActionPreference: 'continue'
 
     - task: Bash@3
       displayName: See Files

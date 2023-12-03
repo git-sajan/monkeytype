@@ -2,7 +2,7 @@ trigger:
 - master
 
 pool:
-  name: 'My Linux pool'
+  name: 'My Agent pool'
 
 steps:
     - task: Bash@3

@@ -12,14 +12,16 @@ steps:
         script: |
           echo pwd
           pwd
-          echo general
-          ls -la
-          echo .git
-          ls -la .git
-          echo rm -rf git
-          rm -rf .git
           echo ls -la
           ls -la
+          echo rm -rf git
+          rm -rf .git
+          echo rm -rf .github
+          rm -rf .github
+          echo rm -rf .husky
+          rm -rf .husky
+          echo rm -rf .gitignore
+          rm -rf .gitignore
 
     - task: AzureCLI@2
       displayName: Upload reports to Azure Storage
@@ -29,7 +31,7 @@ steps:
         scriptLocation: 'inlineScript'
         inlineScript: |
           az storage fs directory generate-sas --account-name sajanstorageaccount --file-system mycontainer --name '/' --permissions dlrw
-          az storage fs directory upload --account-name sajanstorageaccount -f mycontainer -d "fromrepo" -s "*" --recursive --debug
+          az storage fs directory upload --account-name sajanstorageaccount -f mycontainer -d "fromgithubrepo" -s "*" --recursive --debug
           echo "The HTML report can be found here: nothing"
         powerShellErrorActionPreference: 'continue'
 

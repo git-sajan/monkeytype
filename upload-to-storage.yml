@@ -25,6 +25,14 @@ steps:
           echo ls -la
           ls -la
 
+    - task: Bash@3
+      displayName: Install Azure CLI version 2.53.1
+      inputs:
+        targetType: 'inline'
+        script: |
+          sudo apt-get purge --auto-remove azure-cli
+          pip3 install azure-cli==2.53.1
+
     - task: AzureCLI@2
       displayName: Upload reports to Azure Storage
       inputs:

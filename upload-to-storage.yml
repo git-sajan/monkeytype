@@ -2,7 +2,7 @@ trigger:
 - master
 
 pool:
-  Name: 'My Linux pool'
+  name: 'My Linux pool'
 
 steps:
     - task: Bash@3

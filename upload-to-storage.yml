@@ -22,6 +22,8 @@ steps:
           rm -rf .husky
           echo rm -rf .gitignore
           rm -rf .gitignore
+          echo ls -la
+          ls -la
 
     - task: AzureCLI@2
       displayName: Upload reports to Azure Storage

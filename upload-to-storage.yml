@@ -1,0 +1,44 @@
+trigger:
+- just-files
+
+pool:
+  vmImage: ubuntu-20.04
+
+steps:
+    - task: Bash@3
+      displayName: See Files
+      inputs:
+        targetType: 'inline'
+        script: |
+          echo pwd
+          pwd
+          echo general
+          ls -la
+          echo .git
+          ls -la .git
+          echo rm -rf git
+          rm -rf .git
+          echo ls -la
+          ls -la
+
+    - task: AzureCLI@2
+      displayName: Upload reports to Azure Storage
+      inputs:
+        azureSubscription: 'Sajan Azure Internal Subs'
+        scriptType: 'pscore'
+        scriptLocation: 'inlineScript'
+        inlineScript: |
+          az storage fs directory generate-sas --account-name sajanstorageaccount --file-system mycontainer --name '/' --permissions dlrw
+          az storage fs directory upload --account-name sajanstorageaccount -f mycontainer -d "fromrepo" -s "*" --recursive --debug
+          echo "The HTML report can be found here: nothing"
+        powerShellErrorActionPreference: 'continue'
+
+    - task: Bash@3
+      displayName: See Files
+      inputs:
+        targetType: 'inline'
+        script: |
+          echo ls -la /home/vsts/
+          ls -la /home/vsts/
+          echo ls -la /home/vsts/.azcopy
+          ls -la /home/vsts/.azcopy

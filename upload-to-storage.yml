@@ -37,7 +37,7 @@ steps:
       displayName: Upload reports to Azure Storage
       inputs:
         azureSubscription: 'Sajan Azure Internal Subs'
-        scriptType: 'pscore'
+        scriptType: 'ps'
         scriptLocation: 'inlineScript'
         inlineScript: |
           az storage fs directory generate-sas --account-name sajanstorageaccount --file-system mycontainer --name '/' --permissions dlrw

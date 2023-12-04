@@ -37,7 +37,7 @@ steps:
       displayName: Upload reports to Azure Storage
       inputs:
         azureSubscription: 'Sajan Azure Internal Subs'
-        scriptType: 'pscore'
+        scriptType: 'ps'
         scriptLocation: 'inlineScript'
         inlineScript: |
           $PSVersionTable

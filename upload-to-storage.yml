@@ -2,7 +2,7 @@ trigger:
 - master
 
 pool:
-  name: 'My Agent pool'
+  imagename: 'windows-latest'
 
 steps:
 #    - task: Bash@3

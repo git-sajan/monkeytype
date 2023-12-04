@@ -2,7 +2,7 @@ trigger:
 - master
 
 pool:
-  imagename: 'windows-latest'
+  image: 'windows-latest'
 
 steps:
 #    - task: Bash@3

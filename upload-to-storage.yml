@@ -33,10 +33,11 @@ steps:
 #          sudo apt-get purge --auto-remove azure-cli
 #          pip3 install azure-cli==2.53.1
 
-    - task: AzureCLI@1
+    - task: AzureCLI@2
       displayName: Upload reports to Azure Storage
       inputs:
         azureSubscription: 'Sajan Azure Internal Subs'
+        scriptType: 'ps'
         scriptLocation: 'inlineScript'
         inlineScript: |
           $PSVersionTable

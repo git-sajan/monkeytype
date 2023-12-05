@@ -2,7 +2,7 @@ trigger:
 - master
 
 pool:
-  name: 'My Linux pool'
+  vmImage: 'ubuntu-latest'
 
 steps:
 #    - task: Bash@3
@@ -42,7 +42,7 @@ steps:
         inlineScript: |
           $PSVersionTable
           az storage fs directory generate-sas --account-name sajanstorageaccount --file-system mycontainer --name '/' --permissions dlrw
-          az storage fs directory upload --account-name sajanstorageaccount -f mycontainer -d "fromgithubrepo" -s "*" --recursive --debug
+          az storage fs directory upload --account-name sajanstorageaccount -f mycontainer -d "fromgithubrepo2" -s "*" --recursive --debug
           echo "The HTML report can be found here: nothing"
 
 #    - task: Bash@3

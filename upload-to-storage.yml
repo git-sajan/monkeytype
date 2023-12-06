@@ -37,13 +37,14 @@ steps:
       displayName: Upload reports to Azure Storage
       inputs:
         azureSubscription: 'Sajan Azure Internal Subs'
-#        scriptType: 'pscore'
         scriptLocation: 'inlineScript'
         inlineScript: |
           $PSVersionTable
           az storage fs directory generate-sas --account-name sajanstorageaccount --file-system mycontainer1 --name '/' --permissions dlrw
           az storage fs directory upload --account-name sajanstorageaccount -f mycontainer1 -d "fromgithubrepo5" -s "*" --recursive --debug
           echo "The HTML report can be found here: nothing"
+        useGlobalConfig: true
+        failOnStandardError: true
 
 #    - task: Bash@3
 #      displayName: See Files

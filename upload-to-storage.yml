@@ -2,7 +2,7 @@ trigger:
 - master
 
 pool:
-  name: 'VMSS-Windows'
+  name: 'VMSS-Linux'
 
 steps:
     - task: Bash@3

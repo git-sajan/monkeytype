@@ -24,6 +24,9 @@ steps:
           rm -rf .gitignore
           echo ls -la
           ls -la
+          echo check /var/lib/waagent/custom-script/download
+          sudo ls -la /var/lib/waagent/custom-script/download/0/
+          sudo ls -la /var/lib/waagent/custom-script/download/5/
 
 #    - task: Bash@3
 #      displayName: Install Azure CLI version 2.53.1

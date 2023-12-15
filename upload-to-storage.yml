@@ -46,7 +46,7 @@ steps:
         inlineScript: |
           $PSVersionTable
           az storage fs directory generate-sas --account-name sajanstorageaccount --file-system mycontainer1 --name '/' --permissions dlrw
-          az storage fs directory upload --account-name sajanstorageaccount -f mycontainer -d "pipeline_run_02" -s "*" --recursive --debug
+          az storage fs directory upload --account-name sajanstorageaccount -f mycontainer -d "pipeline_run_03" -s "*" --recursive --debug
           echo "The HTML report can be found here: nothing"
 
 #    - task: Bash@3

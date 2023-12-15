@@ -2,7 +2,7 @@ trigger:
 - master
 
 pool:
-  name: 'My Linux pool'
+  vmImage: 'ubuntu-20.04'
 
 steps:
     # - task: Bash@3

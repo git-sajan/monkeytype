@@ -2,7 +2,7 @@ trigger:
 - master
 
 pool:
-  vmImage: 'ubuntu-latest'
+  name: 'VMSS-Windows'
 
 steps:
     # - task: Bash@3

@@ -2,32 +2,32 @@ trigger:
 - master
 
 pool:
-  name: 'VMSS-Linux'
+  name: 'My Linux pool'
 
 steps:
-    - task: Bash@3
-      displayName: See Files
-      inputs:
-        targetType: 'inline'
-        script: |
-          echo pwd
-          pwd
-          echo ls -la
-          ls -la
-          echo rm -rf git
-          rm -rf .git
-          echo rm -rf .github
-          rm -rf .github
-          echo rm -rf .husky
-          rm -rf .husky
-          echo rm -rf .gitignore
-          rm -rf .gitignore
-          echo ls -la
-          ls -la
-          echo check /var/lib/waagent/custom-script/download
-          sudo ls -la /var/lib/waagent/custom-script/download/*/
-          echo check /var/lib/waagent/
-          sudo ls -la /var/lib/waagent/
+    # - task: Bash@3
+    #   displayName: See Files
+    #   inputs:
+    #     targetType: 'inline'
+    #     script: |
+    #       echo pwd
+    #       pwd
+    #       echo ls -la
+    #       ls -la
+    #       echo rm -rf git
+    #       rm -rf .git
+    #       echo rm -rf .github
+    #       rm -rf .github
+    #       echo rm -rf .husky
+    #       rm -rf .husky
+    #       echo rm -rf .gitignore
+    #       rm -rf .gitignore
+    #       echo ls -la
+    #       ls -la
+    #       echo check /var/lib/waagent/custom-script/download
+    #       sudo ls -la /var/lib/waagent/custom-script/download/*/
+    #       echo check /var/lib/waagent/
+    #       sudo ls -la /var/lib/waagent/
 
 #    - task: Bash@3
 #      displayName: Install Azure CLI version 2.53.1
@@ -45,7 +45,7 @@ steps:
         inlineScript: |
           $PSVersionTable
           az storage fs directory generate-sas --account-name sajanstorageaccount --file-system mycontainer1 --name '/' --permissions dlrw
-          az storage fs directory upload --account-name sajanstorageaccount -f mycontainer1 -d "fromgithubrepo5" -s "*" --recursive --debug
+          az storage fs directory upload --account-name sajanstorageaccount -f mycontainer -d "pipeline_run_01" -s "*" --recursive --debug
           echo "The HTML report can be found here: nothing"
 
 #    - task: Bash@3
